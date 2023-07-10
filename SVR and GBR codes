@@ -1,0 +1,291 @@
+setwd("C:/Users/Vakwenda/Documents/all analysis docs/unv interactions")
+UNVhour<-read.csv("UNVhour_new.csv")
+
+TempRH<-UNVhour$Temp*UNVhour$RH
+TempRain<-UNVhour$Temp*UNVhour$Rain
+TempWS<-UNVhour$Temp*UNVhour$WS
+TempWVec_Mag<-UNVhour$Temp*UNVhour$WVec_Mag
+TempWD<-UNVhour$Temp*UNVhour$WD
+TempWD_StdDev<-UNVhour$Temp*UNVhour$WD_StdDev
+TempWS_Max<-UNVhour$Temp*UNVhour$WS_Max
+TempBP<-UNVhour$Temp*UNVhour$BP
+Tempnoltrend<-UNVhour$Temp*UNVhour$noltrend
+Templag1<-UNVhour$Temp*UNVhour$lag1
+Templag2<-UNVhour$Temp*UNVhour$lag2
+
+RHRain<-UNVhour$RH*UNVhour$Rain
+RHWS<-UNVhour$RH*UNVhour$WS
+RHWVec_Mag<-UNVhour$RH*UNVhour$WVec_Mag
+RHWD<-UNVhour$RH*UNVhour$WD
+RHWD_StdDev<-UNVhour$RH*UNVhour$WD_StdDev
+RHWS_Max<-UNVhour$RH*UNVhour$WS_Max
+RHBP<-UNVhour$RH*UNVhour$BP
+RHnoltrend<-UNVhour$RH*UNVhour$noltrend
+RHlag1<-UNVhour$RH*UNVhour$lag1
+RHlag2<-UNVhour$RH*UNVhour$lag2
+
+RainWS<-UNVhour$Rain*UNVhour$WS
+RainWVec_Mag<-UNVhour$Rain*UNVhour$WVec_Mag
+RainWD<-UNVhour$Rain*UNVhour$WD
+RainWD_StdDev<-UNVhour$Rain*UNVhour$WD_StdDev
+RainWS_Max<-UNVhour$Rain*UNVhour$WS_Max
+RainBP<-UNVhour$Rain*UNVhour$BP
+Rainnoltrend<-UNVhour$Rain*UNVhour$noltrend
+Rainlag1<-UNVhour$Rain*UNVhour$lag1
+Rainlag2<-UNVhour$Rain*UNVhour$lag2
+
+WSWVec_Mag<-UNVhour$WS*UNVhour$WVec_Mag
+WSWD<-UNVhour$WS*UNVhour$WD
+WSWD_StdDev<-UNVhour$WS*UNVhour$WD_StdDev
+WSWS_Max<-UNVhour$WS*UNVhour$WS_Max
+WSBP<-UNVhour$WS*UNVhour$BP
+WSnoltrend<-UNVhour$WS*UNVhour$noltrend
+WSlag1<-UNVhour$WS*UNVhour$lag1
+WSlag2<-UNVhour$WS*UNVhour$lag2
+
+WVec_MagWD<-UNVhour$WVec_Mag*UNVhour$WD
+WVec_MagWD_StdDev<-UNVhour$WVec_Mag*UNVhour$WD_StdDev
+WVec_MagWS_Max<-UNVhour$WVec_Mag*UNVhour$WS_Max
+WVec_MagBP<-UNVhour$WVec_Mag*UNVhour$BP
+WVec_Magnoltrend<-UNVhour$WVec_Mag*UNVhour$noltrend
+WVec_Maglag1<-UNVhour$WVec_Mag*UNVhour$lag1
+WVec_Maglag2<-UNVhour$WVec_Mag*UNVhour$lag2
+
+WDWS_Max<-UNVhour$WD*UNVhour$WS_Max
+WDBP<-UNVhour$WD*UNVhour$BP
+WDWD_StdDev<-UNVhour$WD*UNVhour$WD_StdDev
+WDnoltrend<-UNVhour$WD*UNVhour$noltrend
+WDlag1<-UNVhour$WD*UNVhour$lag1
+WDlag2<-UNVhour$WD*UNVhour$lag2
+
+WD_StdDevWS_Max<-UNVhour$WD_StdDev*UNVhour$WS_Max
+WD_StdDevBP<-UNVhour$WD_StdDev*UNVhour$BP
+WD_StdDevnoltrend<-UNVhour$WD_StdDev*UNVhour$noltrend
+WD_StdDevlag1<-UNVhour$WD_StdDev*UNVhour$lag1
+WD_StdDevlag2<-UNVhour$WD_StdDev*UNVhour$lag2
+
+WS_MaxBP<-UNVhour$WS_Max*UNVhour$BP
+WS_Maxnoltrend<-UNVhour$WS_Max*UNVhour$noltrend
+WS_Maxlag1<-UNVhour$WS_Max*UNVhour$lag1
+WS_Maxlag2<-UNVhour$WS_Max*UNVhour$lag2
+
+BPnoltrend<-UNVhour$BP*UNVhour$noltrend
+BPlag1<-UNVhour$BP*UNVhour$lag1
+BPlag2<-UNVhour$BP*UNVhour$lag2
+
+noltrendlag1<-UNVhour$noltrend*UNVhour$lag1
+noltrendlag2<-UNVhour$noltrend*UNVhour$lag2
+
+lag1lag2<-UNVhour$lag1*UNVhour$lag2
+
+
+
+Int <- cbind(
+TempRH,TempRain,TempWS,TempWVec_Mag,TempWD,TempWD_StdDev,TempWS_Max,TempBP,Tempnoltrend,
+Templag1,Templag2,RHRain,RHWS,RHWVec_Mag,RHWD,RHWD_StdDev,RHWS_Max,RHBP,RHnoltrend,RHlag1,RHlag2,
+RainWS,RainWVec_Mag,RainWD,RainWD_StdDev,RainWS_Max,RainBP,Rainnoltrend,Rainlag1,Rainlag2,WSWVec_Mag,
+WSWD,WSWD_StdDev,WSWS_Max,WSBP,WSnoltrend,WSlag1,WSlag2,WVec_MagWD,WVec_MagWD_StdDev,WVec_MagWS_Max,
+WVec_MagBP,WVec_Magnoltrend,WVec_Maglag1,WVec_Maglag2,WDWS_Max,WDBP,WDWD_StdDev,WDnoltrend,WDlag1,WDlag2,
+WD_StdDevWS_Max,WD_StdDevBP,WD_StdDevnoltrend,WD_StdDevlag1,WD_StdDevlag2,WS_MaxBP,WS_Maxnoltrend,WS_Maxlag1,
+WS_Maxlag2,BPnoltrend,BPlag1,BPlag2,noltrendlag1,noltrendlag2,lag1lag2)
+
+UNV_Hour_int <-cbind(UNVhour,Int)
+head(UNV_Hour_int)
+
+
+#Lasso regularisation and variable importance
+library(glmnet)
+library(lars)
+library(hierNet)
+
+
+#perfom lasso
+xvar <- as.matrix(UNV_Hour_int[,3:50])
+yvar <- UNV_Hour_int$GHI
+write.table(UNV_Hour_int,"C:/Users/Vakwenda/Documents/actuals vs predicted all tables/UNVhour_interaction.csv",sep = ",", 
+            row.names = FALSE) #open file
+model_lasso <- glmnet(xvar, yvar)
+win.graph()
+plot(model_lasso, xvar = "norm", label = TRUE)
+
+#get the cross validation curve
+win.graph()
+cv_fit <- cv.glmnet(xvar, yvar, alpha = 1, nlambda = 1000)
+plot(cv_fit)
+
+#this will give minimum mean cross-validated error
+cv_fit$lambda.min
+coef(cv_fit, s=cv_fit$lambda.min) 
+
+#dropping non relavant coeficients
+UNV_hour_lasso = subset(UNV_Hour_int, select = -c(Rain,WVec_Mag,WD,lag2,RainWVec_Mag,RainBP,WSlag1,WVec_Maglag1,
+				WD_StdDevBP,BPnoltrend,BPlag2))
+#removed 11 variables
+
+head(UNV_hour_lasso)
+ncol(UNV_hour_lasso)
+
+
+#Generally, the purpose of regularization is to balance accuracy and simplicity. 
+#The function cv.glmnet() finds the value of lambda that gives the simplest model
+#but also lies within one standard error of the optimal value of lambda.This value
+#is called lambda.1se.
+
+##---------------------------------------------------------------#
+# GBM MODEL                                                      #
+#----------------------------------------------------------------#
+
+GHI_data_test <- 5889:nrow(UNV_hour_lasso)
+length(GHI_data_test)
+data_train <- UNV_hour_lasso[-GHI_data_test, ]
+length(data_train)
+data_test <- UNV_hour_lasso[GHI_data_test, ]
+length(data_test)
+
+
+# TRAIN SET 
+
+library(caret)
+library(gbm)
+
+gbm_mod <- train(GHI~Temp+RH+WS+WD_StdDev+WS_Max+BP+noltrend+lag1+TempRH+TempRain+TempWS+TempWVec_Mag+TempWD+TempWD_StdDev+
+TempWS_Max+TempBP+Tempnoltrend+Templag1+Templag2+RHRain+RHWS+RHWVec_Mag+RHWD+RHWD_StdDev+RHWS_Max+RHBP+
+RHnoltrend+RHlag1+RHlag2+RainWS+RainWD+RainWD_StdDev+RainWS_Max+Rainnoltrend+Rainlag1+Rainlag2+WSWVec_Mag+
+WSWD+WSWD_StdDev+WSWS_Max+WSBP+WSnoltrend+WSlag2+WVec_MagWD+WVec_MagWD_StdDev+WVec_MagWS_Max+WVec_MagBP+
+WVec_Magnoltrend+WVec_Maglag2+WDWS_Max+WDBP+WDWD_StdDev+WDnoltrend+WDlag1+WDlag2+WD_StdDevWS_Max+WD_StdDevnoltrend+
+WD_StdDevlag1+WD_StdDevlag2+WS_MaxBP+WS_Maxnoltrend+WS_Maxlag1+WS_Maxlag2+BPlag1+noltrendlag1+noltrendlag2+lag1lag2,
+data = data_train, method = "gbm")
+
+win.graph()
+plot(summary(gbm_mod))
+
+#  Prediction TEST SET 
+
+Predict_test <- predict(gbm_mod, newdata = data_test)
+Predict_test <- round(Predict_test,3)
+
+# ACCURACY MEASURES
+library(forecast)
+GHI_test <- ts(data_test$GHI)
+accuracy(Predict_test, GHI_test)
+
+win.graph()
+par(mfrow=c(1,2))
+plot(GHI_test,main = "Forecasts vs Actual values : Gradient boosting model", xlab="Observation number",lwd=2,ylab="Hourly GHI (W/m^2)",ylim=c(0,1200),xlim=c(0,150))
+lines( Predict_test,col="red", lty=2,lwd=2)
+legend("topright",col=c("black","red"), lty=1:2,lwd=2,
+       legend=c("Forecasts", "Actuals"))
+summary(gbm_mod)
+#plot variable importance in percentages
+plot.new()
+plot(varImp(gbm_mod))
+varImp(gbm_mod)
+#coming up with actuals vs predicted tables
+write.table(GHI_test,"C:/Users/Vakwenda/Documents/all analysis docs/unv interactions/UNVhour_gbr interaction.csv",sep = ",", col.names = c("GHI_test"),
+            row.names = FALSE) #open file
+write.table(Predict_test,"C:/Users/Vakwenda/Documents/all analysis docs/unv interactions/UNVhour_gbr interaction predicted.csv",sep = ",", col.names = c("Predict_test"),
+            row.names = FALSE) #open file
+
+#-------------------------------------------
+
+
+#---------------------------------------------------------------
+#				SVM
+#_-------------------------------------------------------------
+memory.limit(1000000000000)
+
+library(e1071)
+win.graph()
+
+svm_Linear <-  svm(formula = GHI~Temp+RH+WS+WD_StdDev+WS_Max+BP+noltrend+lag1+TempRH+TempRain+TempWS+TempWVec_Mag+TempWD+TempWD_StdDev+
+                     TempWS_Max+TempBP+Tempnoltrend+Templag1+Templag2+RHRain+RHWS+RHWVec_Mag+RHWD+RHWD_StdDev+RHWS_Max+RHBP+
+                     RHnoltrend+RHlag1+RHlag2+RainWS+RainWD+RainWD_StdDev+RainWS_Max+Rainnoltrend+Rainlag1+Rainlag2+WSWVec_Mag+
+                     WSWD+WSWD_StdDev+WSWS_Max+WSBP+WSnoltrend+WSlag2+WVec_MagWD+WVec_MagWD_StdDev+WVec_MagWS_Max+WVec_MagBP+
+                     WVec_Magnoltrend+WVec_Maglag2+WDWS_Max+WDBP+WDWD_StdDev+WDnoltrend+WDlag1+WDlag2+WD_StdDevWS_Max+WD_StdDevnoltrend+
+                     WD_StdDevlag1+WD_StdDevlag2+WS_MaxBP+WS_Maxnoltrend+WS_Maxlag1+WS_Maxlag2+BPlag1+noltrendlag1+noltrendlag2+lag1lag2, data = data_train,scale = TRUE,
+                   kernel = "linear",type = "eps-regression")
+
+svm_Radial <-  svm(formula = GHI~Temp+RH+WS+WD_StdDev+WS_Max+BP+noltrend+lag1+TempRH+TempRain+TempWS+TempWVec_Mag+TempWD+TempWD_StdDev+
+                     TempWS_Max+TempBP+Tempnoltrend+Templag1+Templag2+RHRain+RHWS+RHWVec_Mag+RHWD+RHWD_StdDev+RHWS_Max+RHBP+
+                     RHnoltrend+RHlag1+RHlag2+RainWS+RainWD+RainWD_StdDev+RainWS_Max+Rainnoltrend+Rainlag1+Rainlag2+WSWVec_Mag+
+                     WSWD+WSWD_StdDev+WSWS_Max+WSBP+WSnoltrend+WSlag2+WVec_MagWD+WVec_MagWD_StdDev+WVec_MagWS_Max+WVec_MagBP+
+                     WVec_Magnoltrend+WVec_Maglag2+WDWS_Max+WDBP+WDWD_StdDev+WDnoltrend+WDlag1+WDlag2+WD_StdDevWS_Max+WD_StdDevnoltrend+
+                     WD_StdDevlag1+WD_StdDevlag2+WS_MaxBP+WS_Maxnoltrend+WS_Maxlag1+WS_Maxlag2+BPlag1+noltrendlag1+noltrendlag2+lag1lag2, data = data_train,scale = TRUE,
+                   kernel = "radial",type = "eps-regression")
+
+svm_Poly <-  svm(formula = GHI~Temp+RH+WS+WD_StdDev+WS_Max+BP+noltrend+lag1+TempRH+TempRain+TempWS+TempWVec_Mag+TempWD+TempWD_StdDev+
+                   TempWS_Max+TempBP+Tempnoltrend+Templag1+Templag2+RHRain+RHWS+RHWVec_Mag+RHWD+RHWD_StdDev+RHWS_Max+RHBP+
+                   RHnoltrend+RHlag1+RHlag2+RainWS+RainWD+RainWD_StdDev+RainWS_Max+Rainnoltrend+Rainlag1+Rainlag2+WSWVec_Mag+
+                   WSWD+WSWD_StdDev+WSWS_Max+WSBP+WSnoltrend+WSlag2+WVec_MagWD+WVec_MagWD_StdDev+WVec_MagWS_Max+WVec_MagBP+
+                   WVec_Magnoltrend+WVec_Maglag2+WDWS_Max+WDBP+WDWD_StdDev+WDnoltrend+WDlag1+WDlag2+WD_StdDevWS_Max+WD_StdDevnoltrend+
+                   WD_StdDevlag1+WD_StdDevlag2+WS_MaxBP+WS_Maxnoltrend+WS_Maxlag1+WS_Maxlag2+BPlag1+noltrendlag1+noltrendlag2+lag1lag2,data = data_train, scale = TRUE,
+                 kernel = "polynomial",type = "eps-regression")
+
+svm_Sig <-  svm(formula = GHI~Temp+RH+WS+WD_StdDev+WS_Max+BP+noltrend+lag1+TempRH+TempRain+TempWS+TempWVec_Mag+TempWD+TempWD_StdDev+
+                  TempWS_Max+TempBP+Tempnoltrend+Templag1+Templag2+RHRain+RHWS+RHWVec_Mag+RHWD+RHWD_StdDev+RHWS_Max+RHBP+
+                  RHnoltrend+RHlag1+RHlag2+RainWS+RainWD+RainWD_StdDev+RainWS_Max+Rainnoltrend+Rainlag1+Rainlag2+WSWVec_Mag+
+                  WSWD+WSWD_StdDev+WSWS_Max+WSBP+WSnoltrend+WSlag2+WVec_MagWD+WVec_MagWD_StdDev+WVec_MagWS_Max+WVec_MagBP+
+                  WVec_Magnoltrend+WVec_Maglag2+WDWS_Max+WDBP+WDWD_StdDev+WDnoltrend+WDlag1+WDlag2+WD_StdDevWS_Max+WD_StdDevnoltrend+
+                  WD_StdDevlag1+WD_StdDevlag2+WS_MaxBP+WS_Maxnoltrend+WS_Maxlag1+WS_Maxlag2+BPlag1+noltrendlag1+noltrendlag2+lag1lag2, data = data_train,scale = TRUE,
+                kernel = "sigmoid",type = "eps-regression")
+
+svmfit<-  svm(x=data_train[3:50],y=data_train$GHI, scale = TRUE,
+              kernel = "radial",type = "eps-regression")
+
+summary(svm_Linear)
+summary(svm_Radial)
+summary(svm_Poly)
+summary(svm_Sig)
+
+win.graph()
+par(mfrow=c(2,2))
+plot(svm_Linear$residuals)
+plot(svm_Radial$residuals)
+plot(svm_Poly$residuals)
+plot(svm_Sig$residuals)
+
+#Predict using SVM regression
+predYtrain_L = predict(svm_Linear, data_train)
+predYtrain_R = predict(svm_Radial, data_train)
+predYtrain_P = predict(svm_Poly, data_train)
+predYtrain_S = predict(svm_Sig, data_train)
+
+memory.limit(100000)
+predYtest_L = predict(svm_Linear, data_test)
+predYtest_R = predict(svm_Radial, data_test)
+predYtest_P = predict(svm_Poly, data_test)
+predYtest_S = predict(svm_Sig, data_test)
+
+
+library(hydroGOF)
+## RMSE for SVR Model
+#Calculate RMSE
+
+rmse(predYtrain_L,data_train$GHI)
+rmse(predYtrain_R,data_train$GHI)
+rmse(predYtrain_P,data_train$GHI)
+rmse(predYtrain_S,data_train$GHI)
+
+rmse(predYtest_L,data_test$GHI)
+rmse(predYtest_R,data_test$GHI)
+rmse(predYtest_P,data_test$GHI)
+rmse(predYtest_S,data_test$GHI)
+
+win.graph()
+par(mfrow=c(1,2))
+plot(GHI_test,main = "Forecasts vs Actual values : Gradient boosting model", xlab="Observation number",lwd=2,ylab="Hourly GHI (W/m^2)",ylim=c(0,1200),xlim=c(0,150))
+lines( Predict_test,col="red", lty=2,lwd=2)
+legend("topright",col=c("black","red"), lty=1:2,lwd=2,
+       legend=c("Forecasts", "Actuals"))
+
+summary(gbm_mod)
+"C:\Users\Vakwenda\Documents\all analysis docs\unv interactions\actual vs pedicted gbm.csv"
+
+write.table(GHI_test,"C:/Users/Vakwenda/Documents/all analysis docs/unv interactions/UNVhour_svm interaction.csv",sep = ",", col.names = c("GHI_test"),
+            row.names = FALSE) #open file
+write.table(predYtest_R,"C:/Users/Vakwenda/Documents/all analysis docs/unv interactions/UNVhour_svm interaction predicted.csv",sep = ",", col.names = c("Predict_test"),
+            row.names = FALSE) #open f
+
+#Calculate RMSE of the best model 
+accuracy(GHI_test,predYtest_R)
+plot(accuracy(y,x))
