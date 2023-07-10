@@ -1,4 +1,4 @@
-# Corevector-GPR
+# GPR Corevector Regression in python
 GPR combined with corevector regresssion
 # -*- coding: utf-8 -*-
 """
